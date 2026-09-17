@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pdtalbum.com - Photo Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="gallery-page">
+
+    <!-- Bahagian Header / Navigasi Atas -->
+    <header class="gallery-nav">
+        <div class="nav-left">
+            <span class="brand-name">PDTALBUM</span>
+            <span class="nav-location">Daerah Tangkak</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="logout-link">Log Keluar</a>
+        </div>
+    </header>
+
+    <!-- Kandungan Utama Galeri -->
+    <main class="gallery-container">
+        
+        <!-- Bahagian Tajuk -->
+        <div class="gallery-header-section">
+            <div class="header-left">
+                <span class="sub-title">OUR STORIES</span>
+                <h1>Photo Gallery</h1>
+            </div>
+            <div class="header-right">
+                <p>Momen-momen indah, aktiviti rasmi, dan pemandangan menarik sekitar daerah Tangkak.</p>
+            </div>
+        </div>
+        
+        <!-- KOTAK MUAT NAIK UNTUK PHOTO GALLERY UTAMA -->
+        <div class="main-upload-container" style="margin-bottom: 30px; background: #ffffff; padding: 20px; border-radius: 12px; border: 2px dashed #3b82f6; text-align: center; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);">
+            <h3 style="margin-bottom: 8px; font-size: 16px; color: #1e293b;">🖼️ Tambah Gambar Baru ke Photo Gallery Utama</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 12px;">Pilih fail gambar untuk dipaparkan secara terus pada paparan bento grid utama.</p>
+            
+            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <input type="file" id="mainGalleryImageInput" accept="image/*" style="font-size: 13px;">
+                <button onclick="uploadToMainGallery()" style="background: #3b82f6; color: white; border: none; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px;">
+                    🚀 Muat Naik ke Gallery
+                </button>
+            </div>
+        </div>
+
+        <!-- 1. SUSUNAN GRID FOTO UTAMA -->
+        <div class="bento-grid" id="mainBentoGrid">
+            
+            <div class="grid-item item-large" style="position: relative;">
+                <img src="img/pic4.jpg" alt="Gambar Utama 1" class="gallery-img">
+                <div class="image-action-container">
+                    <button class="menu-trigger-btn" onclick="toggleActionMenu(event, this)" title="Pilihan">⋮</button>
+                    <div class="action-dropdown-menu">
+                        <a href="img/pic4.jpg" download="gambar-utama-1.jpg">Muat Turun</a>
+                        <button class="delete-option" onclick="this.closest('.grid-item').remove()">Padam</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item item-small" style="position: relative;">
+                <img src="img/pic2.jpg" alt="Gambar 2" class="gallery-img">
+                <div class="image-action-container">
+                    <button class="menu-trigger-btn" onclick="toggleActionMenu(event, this)" title="Pilihan">⋮</button>
+                    <div class="action-dropdown-menu">
+                        <a href="img/pic2.jpg" download="gambar-2.jpg">Muat Turun</a>
+                        <button class="delete-option" onclick="this.closest('.grid-item').remove()">Padam</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item item-medium" style="position: relative;">
+                <img src="img/pic3.jpg" alt="Gambar 3" class="gallery-img">
+                <div class="image-action-container">
+                    <button class="menu-trigger-btn" onclick="toggleActionMenu(event, this)" title="Pilihan">⋮</button>
+                    <div class="action-dropdown-menu">
+                        <a href="img/pic3.jpg" download="gambar-3.jpg">Muat Turun</a>
+                        <button class="delete-option" onclick="this.closest('.grid-item').remove()">Padam</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item item-center-tall" style="position: relative;">
+                <img src="img/pic4.jpg" alt="Gambar 4" class="gallery-img">
+                <div class="image-action-container">
+                    <button class="menu-trigger-btn" onclick="toggleActionMenu(event, this)" title="Pilihan">⋮</button>
+                    <div class="action-dropdown-menu">
+                        <a href="img/pic4.jpg" download="gambar-4.jpg">Muat Turun</a>
+                        <button class="delete-option" onclick="this.closest('.grid-item').remove()">Padam</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item item-medium" style="position: relative;">
+                <img src="img/pic5.jpg" alt="Gambar 5" class="gallery-img">
+                <div class="image-action-container">
+                    <button class="menu-trigger-btn" onclick="toggleActionMenu(event, this)" title="Pilihan">⋮</button>
+                    <div class="action-dropdown-menu">
+                        <a href="img/pic5.jpg" download="gambar-5.jpg">Muat Turun</a>
+                        <button class="delete-option" onclick="this.closest('.grid-item').remove()">Padam</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item item-wide" style="position: relative;">
+                <img src="img/pic6.jpg" alt="Gambar 6" class="gallery-img">
+                <div class="image-action-container">
+                    <button class="menu-trigger-btn" onclick="toggleActionMenu(event, this)" title="Pilihan">⋮</button>
+                    <div class="action-dropdown-menu">
+                        <a href="img/pic6.jpg" download="gambar-6.jpg">Muat Turun</a>
+                        <button class="delete-option" onclick="this.closest('.grid-item').remove()">Padam</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2. BAHAGIAN KOLEKSI FOLDER ALBUM -->
+        <div class="folder-section-title" style="margin-top: 40px; margin-bottom: 20px;">
+            <h2>Koleksi Album Mengikut Tahun</h2>
+            <p style="color: #64748b; font-size: 14px;">Klik mana-mana ikon folder untuk membuka dan melihat gambar di dalamnya.</p>
+        </div>
+
+        <div class="folder-grid">
+            
+            <!-- Folder 2026 -->
+            <div class="folder-card" onclick="openFolder('2026', ['img/pic2.jpg', 'img/pic5.jpg'])">
+                <div class="folder-graphic">
+                    <svg viewBox="0 0 512 512" class="folder-svg">
+                        <path d="M464 160H264l-48-48H48c-26.5 0-48 21.5-48 48v256c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V208c0-26.5-21.5-48-48-48z" fill="#f4a261"/>
+                        <path d="M464 192H48c-17.7 0-32 14.3-32 32v208c0 17.7 14.3 32 32 32h416c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32z" fill="#e9c46a"/>
+                    </svg>
+                </div>
+                <div class="folder-info">
+                    <h3>2026</h3>
+                    <span class="photo-badge">2 Foto</span>
+                </div>
+            </div>
+
+            <!-- Folder 2027 -->
+            <div class="folder-card" onclick="openFolder('2027', ['img/pic2.jpg', 'img/pic5.jpg'])">
+                <div class="folder-graphic">
+                    <svg viewBox="0 0 512 512" class="folder-svg">
+                        <path d="M464 160H264l-48-48H48c-26.5 0-48 21.5-48 48v256c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V208c0-26.5-21.5-48-48-48z" fill="#f4a261"/>
+                        <path d="M464 192H48c-17.7 0-32 14.3-32 32v208c0 17.7 14.3 32 32 32h416c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32z" fill="#e9c46a"/>
+                    </svg>
+                </div>
+                <div class="folder-info">
+                    <h3>2027</h3>
+                    <span class="photo-badge">2 Foto</span>
+                </div>
+            </div>
+
+            <!-- Folder 2028 -->
+            <div class="folder-card" onclick="openFolder('2028', ['img/pic6.jpg', 'img/pic3.jpg'])">
+                <div class="folder-graphic">
+                    <svg viewBox="0 0 512 512" class="folder-svg">
+                        <path d="M464 160H264l-48-48H48c-26.5 0-48 21.5-48 48v256c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V208c0-26.5-21.5-48-48-48z" fill="#f4a261"/>
+                        <path d="M464 192H48c-17.7 0-32 14.3-32 32v208c0 17.7 14.3 32 32 32h416c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32z" fill="#e9c46a"/>
+                    </svg>
+                </div>
+                <div class="folder-info">
+                    <h3>2028</h3>
+                    <span class="photo-badge">2 Foto</span>
+                </div>
+            </div>
+
+            <!-- Folder 2029 -->
+            <div class="folder-card" onclick="openFolder('2029', ['img/pic4.jpg', 'img/pic6.jpg'])">
+                <div class="folder-graphic">
+                    <svg viewBox="0 0 512 512" class="folder-svg">
+                        <path d="M464 160H264l-48-48H48c-26.5 0-48 21.5-48 48v256c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V208c0-26.5-21.5-48-48-48z" fill="#f4a261"/>
+                        <path d="M464 192H48c-17.7 0-32 14.3-32 32v208c0 17.7 14.3 32 32 32h416c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32z" fill="#e9c46a"/>
+                    </svg>
+                </div>
+                <div class="folder-info">
+                    <h3>2029</h3>
+                    <span class="photo-badge">2 Foto</span>
+                </div>
+            </div>
+
+            <!-- Folder 2030 -->
+            <div class="folder-card" onclick="openFolder('2030', ['img/pic5.jpg', 'img/pic2.jpg'])">
+                <div class="folder-graphic">
+                    <svg viewBox="0 0 512 512" class="folder-svg">
+                        <path d="M464 160H264l-48-48H48c-26.5 0-48 21.5-48 48v256c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V208c0-26.5-21.5-48-48-48z" fill="#f4a261"/>
+                        <path d="M464 192H48c-17.7 0-32 14.3-32 32v208c0 17.7 14.3 32 32 32h416c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32z" fill="#e9c46a"/>
+                    </svg>
+                </div>
+                <div class="folder-info">
+                    <h3>2030</h3>
+                    <span class="photo-badge">2 Foto</span>
+                </div>
+            </div>
+
+            <!-- Folder 2031 -->
+            <div class="folder-card" onclick="openFolder('2031', ['img/pic3.jpg', 'img/pic4.jpg'])">
+                <div class="folder-graphic">
+                    <svg viewBox="0 0 512 512" class="folder-svg">
+                        <path d="M464 160H264l-48-48H48c-26.5 0-48 21.5-48 48v256c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V208c0-26.5-21.5-48-48-48z" fill="#f4a261"/>
+                        <path d="M464 192H48c-17.7 0-32 14.3-32 32v208c0 17.7 14.3 32 32 32h416c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32z" fill="#e9c46a"/>
+                    </svg>
+                </div>
+                <div class="folder-info">
+                    <h3>2031</h3>
+                    <span class="photo-badge">2 Foto</span>
+                </div>
+            </div>
+
+            <!-- Folder 2032 -->
+            <div class="folder-card" onclick="openFolder('2032', ['img/pic6.jpg', 'img/pic5.jpg'])">
+                <div class="folder-graphic">
+                    <svg viewBox="0 0 512 512" class="folder-svg">
+                        <path d="M464 160H264l-48-48H48c-26.5 0-48 21.5-48 48v256c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V208c0-26.5-21.5-48-48-48z" fill="#f4a261"/>
+                        <path d="M464 192H48c-17.7 0-32 14.3-32 32v208c0 17.7 14.3 32 32 32h416c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32z" fill="#e9c46a"/>
+                    </svg>
+                </div>
+                <div class="folder-info">
+                    <h3>2032</h3>
+                    <span class="photo-badge">2 Foto</span>
+                </div>
+            </div>
+
+            <!-- Folder 2033 -->
+            <div class="folder-card" onclick="openFolder('2033', ['img/pic2.jpg', 'img/pic3.jpg', 'img/pic6.jpg'])">
+                <div class="folder-graphic">
+                    <svg viewBox="0 0 512 512" class="folder-svg">
+                        <path d="M464 160H264l-48-48H48c-26.5 0-48 21.5-48 48v256c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V208c0-26.5-21.5-48-48-48z" fill="#f4a261"/>
+                        <path d="M464 192H48c-17.7 0-32 14.3-32 32v208c0 17.7 14.3 32 32 32h416c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32z" fill="#e9c46a"/>
+                    </svg>
+                </div>
+                <div class="folder-info">
+                    <h3>2033</h3>
+                    <span class="photo-badge">3 Foto</span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Pop-up Modal untuk Paparan Isi Dalam Folder -->
+    <div id="folderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Nama Album</h2>
+                <span class="close-btn" onclick="closeFolder()">&times;</span>
+            </div>
+            <div class="modal-body">
+                
+                <!-- Bahagian Muat Naik Di Dalam Pop-up -->
+                <div class="modal-upload-box" style="margin-bottom: 25px; padding: 15px; background: #f8fafc; border-radius: 12px; border: 2px dashed #cbd5e1; text-align: center;">
+                    <p style="font-size: 13px; color: #475569; margin-bottom: 8px; font-weight: 500;">Tambah gambar ke album ini:</p>
+                    <input type="file" id="modalImageInput" accept="image/*" style="font-size: 13px; margin-bottom: 8px;">
+                    <br>
+                    <button onclick="uploadToCurrentFolder()" style="background: #0284c7; color: white; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px;">Muat Naik ke Album</button>
+                </div>
+
+                <!-- Tempat Paparan Senarai Gambar Dalam Folder -->
+                <div id="modalImageGrid" class="modal-grid">
+                    <!-- Kandungan gambar dimasukkan melalui JavaScript -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Pautan Fail JavaScript -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>

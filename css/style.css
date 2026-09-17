@@ -1,0 +1,828 @@
+/* CSS Document */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color:silver;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%230284c7' stroke-opacity='0.22' stroke-width='1.2'%3E%3Cpath d='M0 100 h120 l40 40 h100 l40 -40 h100' /%3E%3Cpath d='M0 300 h80 l60 -60 h120 l60 60 h80' /%3E%3Cpath d='M100 0 v100 l50 50 v100 l-50 50 v100' /%3E%3Cpath d='M300 0 v80 l-40 40 v120 l40 40 v120' /%3E%3Ccircle cx='160' cy='140' r='4' fill='%230284c7' fill-opacity='0.3' /%3E%3Ccircle cx='260' cy='140' r='4' fill='%230284c7' fill-opacity='0.3' /%3E%3Ccircle cx='140' cy='240' r='4' fill='%230284c7' fill-opacity='0.3' /%3E%3Ccircle cx='260' cy='240' r='4' fill='%230284c7' fill-opacity='0.3' /%3E%3C/g%3E%3Cg fill='%230284c7' fill-opacity='0.25'%3E%3Crect x='190' y='190' width='20' height='20' rx='3' fill='none' stroke='%230284c7' stroke-width='1.5' /%3E%3Ccircle cx='200' cy='200' r='3' /%3E%3C/g%3E%3C/svg%3E");
+    background-size: auto, 350px 350px;
+    background-repeat: repeat;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* ==========================================
+   HALAMAN LOG MASUK (LOGIN PAGE)
+   ========================================== */
+.login-wrapper {
+    width: 100%;
+    max-width: 850px;
+    padding: 20px;
+}
+
+/* Kesan Cahaya Berkeliling Kotak Login */
+@keyframes borderGlowPulse {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 162, 232, 0.3), 0 0 20px rgba(0, 162, 232, 0.2), inset 0 0 5px rgba(0, 162, 232, 0.1);
+        border-color: rgba(0, 162, 232, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 162, 232, 0.8), 0 0 50px rgba(0, 162, 232, 0.5), 0 0 80px rgba(0, 162, 232, 0.3);
+        border-color: rgba(0, 162, 232, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 162, 232, 0.3), 0 0 20px rgba(0, 162, 232, 0.2), inset 0 0 5px rgba(0, 162, 232, 0.1);
+        border-color: rgba(0, 162, 232, 0.5);
+    }
+}
+
+.login-container {
+    background: #ffffff;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 480px;
+    border: 2px solid rgba(0, 162, 232, 0.5);
+    animation: borderGlowPulse 3s infinite ease-in-out;
+}
+
+/* Bahagian Kiri Banner & Animasi Segi Tiga */
+.left-banner {
+    flex: 1;
+    background: #1e3e62;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeInImage 1s ease-out 0.3s forwards;
+}
+
+[class^="shape-shadow-"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.4);
+    filter: blur(8px);
+    opacity: 0;
+    animation: fadeInShadow 1s ease-out 0.3s forwards;
+}
+
+.shape-shadow-1 {
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    animation: slideOutTopShadow 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.shape-shadow-2 {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    animation: slideOutBottomShadow 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.shape-triangle-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: linear-gradient(135deg, #00b4d8 0%, #1e3e62 80%);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    animation: slideOutTop 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.shape-triangle-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: linear-gradient(45deg, #0077b6 0%, #03045e 80%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    animation: slideOutBottom 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Keyframes Animasi Banner Kiri */
+@keyframes slideOutTop {
+    to { transform: translate(-15px, -15px); clip-path: polygon(0 0, 42% 0, 0 42%); }
+}
+
+@keyframes slideOutBottom {
+    to { transform: translate(15px, 15px); clip-path: polygon(42% 100%, 100% 100%, 100% 42%); }
+}
+
+@keyframes slideOutTopShadow {
+    to { transform: translate(-10px, -10px); clip-path: polygon(0 0, 42% 0, 0 42%); }
+}
+
+@keyframes slideOutBottomShadow {
+    to { transform: translate(10px, 10px); clip-path: polygon(58% 100%, 100% 100%, 100% 58%); }
+}
+
+@keyframes fadeInImage {
+    to { opacity: 1; }
+}
+
+@keyframes fadeInShadow {
+    to { opacity: 1; }
+}
+
+/* Bahagian Kanan Borang Log Masuk */
+.right-form-section {
+    flex: 1.1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+
+.form-logo {
+    width: 75px;
+    height: 75px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 60px;
+    border: 2px solid #e2e8f0;
+}
+
+.form-logo img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+.modern-form {
+    width: 100%;
+    max-width: 320px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.3s;
+}
+
+.input-box:focus-within {
+    border-color: #0077b6;
+}
+
+.input-icon {
+    font-size: 16px;
+    margin-right: 10px;
+    color: #64748b;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: #1e293b;
+    background: transparent;
+}
+
+.input-box input::placeholder {
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #0077b6, #03045e);
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 119, 182, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+    box-shadow: 0 6px 15px rgba(0, 180, 216, 0.4);
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   HALAMAN ALBUM / GALERI (GALLERY PAGE)
+   ========================================== */
+body.gallery-page {
+    background-color: #f4f7f6;
+    color: #2c3e50;
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+.gallery-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 50px;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    color: #1e3e62;
+}
+
+.nav-location {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #0077b6;
+}
+
+.logout-link {
+    background:#4C8CD9;
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.logout-link:hover {
+    background: #334155;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 30px;
+}
+
+.gallery-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 45px;
+}
+
+.sub-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.gallery-header-section h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #1e3e62; /* Ditukar daripada cadetblue kepada biru gelap agar lebih jelas */
+    letter-spacing: -1px;
+    margin-top: 5px;
+}
+
+.header-right p {
+    max-width: 280px;
+    font-size: 14px;
+    color: #475569; /* Ditukar agar mudah dibaca */
+    line-height: 1.5;
+    text-align: right;
+}
+
+/* Bento Grid Gallery */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 240px;
+    gap: 20px;
+}
+
+.grid-item {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.grid-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.grid-item:hover .gallery-img {
+    transform: scale(1.05);
+}
+
+.download-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(15, 23, 42, 0.75); /* Warna gelap separa telus yang elegan */
+    backdrop-filter: blur(6px); /* Kesan kabur moden di belakang butang */
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.download-btn:hover {
+    background: rgba(15, 23, 42, 0.95);
+    transform: translateY(-2px); /* Kesan terapung sedikit apabila tetikus melintas */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Folder Album Grid */
+.folder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.folder-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+}
+
+.folder-card:hover {
+    transform: translateY(-8px);
+}
+
+.folder-graphic {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+}
+
+.folder-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.folder-info {
+    text-align: center;
+}
+
+.folder-info h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.photo-badge {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.folder-card:hover .folder-graphic {
+    transform: scale(1.1) translateY(-6px);
+}
+
+/* ==========================================
+   POP-UP MODAL
+   ========================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    max-height: 85vh;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    animation: popUp 0.3s ease-out;
+}
+
+@keyframes popUp {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+    padding: 20px 25px;
+    background: #03045e;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+}
+
+.close-btn {
+    font-size: 30px;
+    cursor: pointer;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #ffffff;
+}
+
+.modal-body {
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 15px;
+}
+
+.modal-img-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 180px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.modal-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Kesan Cahaya Berkeliling & Latar Belakang Grafik --- */
+
+/* Animasi garis cahaya mengelilingi kotak borang */
+@keyframes borderGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 150, 255, 0.3), 
+                    0 0 10px rgba(0, 150, 255, 0.2),
+                    inset 0 0 5px rgba(0, 150, 255, 0.1);
+        border-color: rgba(0, 150, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 162, 232, 0.8), 
+                    0 0 40px rgba(0, 162, 232, 0.5),
+                    0 0 60px rgba(0, 162, 232, 0.3);
+        border-color: rgba(0, 162, 232, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 150, 255, 0.3), 
+                    0 0 10px rgba(0, 150, 255, 0.2),
+                    inset 0 0 5px rgba(0, 150, 255, 0.1);
+        border-color: rgba(0, 150, 255, 0.4);
+    }
+}
+
+/* Kelas untuk kotak borang utama (Login Card) */
+.login-card {
+    position: relative;
+    border: 2px solid rgba(0, 162, 232, 0.4);
+    animation: borderGlow 3s infinite ease-in-out;
+    /* Pastikan sifat asal kekal (background putih, border-radius, dsb) */
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Animasi kelipan garis pada latar belakang berunsur grafik (Tech Grid/Lines) */
+@keyframes bgLineGlow {
+    0%, 100% {
+        opacity: 0.3;
+        filter: drop-shadow(0 0 2px rgba(0, 162, 232, 0.2));
+    }
+    50% {
+        opacity: 0.9;
+        filter: drop-shadow(0 0 8px rgba(0, 162, 232, 0.8)) drop-shadow(0 0 15px rgba(0, 162, 232, 0.5));
+    }
+}
+
+/* Sasaran pada elemen latar belakang grafik anda (ubah selector mengikut class background anda, cth: .bg-pattern atau .tech-background) */
+body.login-page, .bg-graphic-pattern {
+    position: relative;
+}
+
+/* Jika latar belakang menggunakan SVG atau elemen garis grafik */
+.bg-graphic-pattern path, .bg-graphic-pattern line, .tech-grid-line {
+    animation: bgLineGlow 4s infinite ease-in-out;
+}
+
+/* --- 1. Kesan Garis Cahaya Mengelilingi Kotak Form (.login-container) --- */
+@keyframes borderGlowPulse {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 162, 232, 0.3), 
+                    0 0 20px rgba(0, 162, 232, 0.2), 
+                    inset 0 0 5px rgba(0, 162, 232, 0.1);
+        border-color: rgba(0, 162, 232, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 162, 232, 0.8), 
+                    0 0 50px rgba(0, 162, 232, 0.5), 
+                    0 0 80px rgba(0, 162, 232, 0.3);
+        border-color: rgba(0, 162, 232, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 162, 232, 0.3), 
+                    0 0 20px rgba(0, 162, 232, 0.2), 
+                    inset 0 0 5px rgba(0, 162, 232, 0.1);
+        border-color: rgba(0, 162, 232, 0.5);
+    }
+}
+
+.login-container {
+    border: 2px solid rgba(0, 162, 232, 0.5);
+    animation: borderGlowPulse 3s infinite ease-in-out;
+    border-radius: 20px; /* Pastikan sudut melengkung selari dengan rekaan asal */
+    overflow: hidden;    /* Mengelakkan elemen anak terkeluar dari sempadan border */
+}
+
+
+/* --- 2. Kesan Cahaya pada Garis Latar Belakang (Background Graphic) --- */
+@keyframes bgGlowEffect {
+    0%, 100% {
+        opacity: 0.4;
+        filter: drop-shadow(0 0 2px rgba(0, 162, 232, 0.3));
+    }
+    50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 10px rgba(0, 162, 232, 0.8)) 
+                drop-shadow(0 0 20px rgba(0, 162, 232, 0.5));
+    }
+}
+
+/* Sasaran pada elemen latar belakang badan (atau kelas corak grafik anda) */
+body {
+    position: relative;
+}
+
+/* Jika background anda menggunakan SVG, elemen path, atau garis kelas tertentu */
+body svg path, body .bg-graphic-line, body .shape-bg {
+    animation: bgGlowEffect 4s infinite ease-in-out;
+}
+
+/* Kontena untuk meletakkan butang 3 titik pada sudut gambar */
+.image-action-container {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 20;
+}
+
+/* Butang 3 Titik Bertindih */
+.menu-trigger-btn {
+    background: rgba(15, 23, 42, 0.7);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+}
+
+.menu-trigger-btn:hover {
+    background: rgba(15, 23, 42, 0.95);
+    transform: scale(1.05);
+}
+
+/* Kotak Menu Pilihan (Dropdown) */
+.action-dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 42px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 130px;
+    overflow: hidden;
+    z-index: 30;
+    border: 1px solid #e2e8f0;
+    animation: fadeInMenu 0.2s ease;
+}
+
+.action-dropdown-menu.show {
+    display: block;
+}
+
+/* Pilihan di dalam menu */
+.action-dropdown-menu a,
+.action-dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 13px;
+    color: #1e293b;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.action-dropdown-menu a:hover,
+.action-dropdown-menu button:hover {
+    background: #f1f5f9;
+}
+
+.action-dropdown-menu button.delete-option {
+    color: #ef4444; /* Warna merah untuk pilihan padam */
+    border-top: 1px solid #f1f5f9;
+}
+
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Kontena untuk meletakkan butang 3 titik */
+.image-action-container {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 20;
+}
+
+/* Butang 3 Titik Bertindih */
+.menu-trigger-btn {
+    background: rgba(15, 23, 42, 0.7);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+}
+
+.menu-trigger-btn:hover {
+    background: rgba(15, 23, 42, 0.95);
+    transform: scale(1.05);
+}
+
+/* Kotak Menu Pilihan (Dropdown) */
+.action-dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 42px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 130px;
+    overflow: hidden;
+    z-index: 30;
+    border: 1px solid #e2e8f0;
+}
+
+.action-dropdown-menu.show {
+    display: block;
+}
+
+/* Pilihan di dalam menu */
+.action-dropdown-menu a,
+.action-dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 13px;
+    color: #1e293b;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.action-dropdown-menu a:hover,
+.action-dropdown-menu button:hover {
+    background: #f1f5f9;
+}
+
+.action-dropdown-menu button.delete-option {
+    color: #ef4444;
+    border-top: 1px solid #f1f5f9;
+}
