@@ -1,0 +1,838 @@
+/* CSS Document */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==========================================================
+   GAYA KHUSUS HALAMAN LOG MASUK
+   ========================================================== */
+
+body.login-page {
+    background: #628993;
+    background-image: url('../img/img3.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+body.login-page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 15, 25, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+}
+
+.login-wrapper {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.login-container {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    overflow: hidden;
+    height: 500px;
+    position: relative;
+}
+
+.right-form-section {
+    flex: 1;
+    padding: 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    z-index: 3;
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.modern-form {
+    width: 100%;
+    max-width: 320px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+    background: #e0f2fe;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 4px 16px;
+    border: 1px solid rgba(2, 132, 199, 0.15);
+    transition: all 0.3s ease;
+}
+
+.input-box:focus-within {
+    background: #ffffff;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.input-icon {
+    font-size: 14px;
+    margin-right: 10px;
+    color: #0284c7;
+}
+
+.input-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    font-size: 13px;
+    color: #1e293b;
+    background: transparent;
+    font-weight: 500;
+}
+
+.input-box input::placeholder {
+    color: #64748b;
+    font-weight: 400;
+}
+
+.login-btn {
+    width: 100%;
+    background: #2dd4bf;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(45, 212, 191, 0.4);
+    transition: all 0.25s ease;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #14b8a6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(45, 212, 191, 0.6);
+}
+
+.left-banner {
+    flex: 1.2;
+    position: relative;
+    overflow: hidden;
+    background: #0b0f19;
+}
+
+.banner-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.95);
+}
+
+.left-banner::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(11, 15, 25, 0.8) 10%, rgba(11, 15, 25, 0.1) 60%);
+    z-index: 2;
+}
+
+.banner-overlay-text {
+    position: absolute;
+    bottom: 35px;
+    left: 40px;
+    z-index: 3;
+    color: #ffffff;
+}
+
+.banner-overlay-text h2 {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.banner-overlay-text p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #e2e8f0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+    .right-form-section {
+        clip-path: polygon(0 0, 88% 0, 100% 8%, 90% 18%, 98% 30%, 87% 42%, 96% 55%, 88% 68%, 95% 82%, 87% 92%, 98% 100%, 0 100%);
+        padding-right: 80px;
+    }
+}
+
+.form-logo {
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ==========================================================
+   BAHAGIAN 2: HALAMAN GALERI / ALBUM
+   ========================================================== */
+
+/* Gunakan pembungkus div khas untuk animasi masuk supaya body tidak terjejas */
+body.gallery-page {
+    background-color: #0b0f19;
+    color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* Kelas kontena animasi masuk halaman galeri */
+.page-transition-wrapper {
+    animation: fadeInFromBottom 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    width: 100%;
+}
+
+@keyframes fadeInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- 1. TETAPAN NAV BAR (FIXED & TELUS) --- */
+
+.gallery-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(11, 15, 25, 0.75); /* Warna latar belakang telus */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.nav-location {
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-categories {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-categories a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.nav-categories a:hover {
+    color: #ffffff;
+}
+
+.logout-btn {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444 !important;
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.logout-btn:hover {
+    background: #ef4444;
+    color: #ffffff !important;
+}
+
+.hero-section {
+    position: relative;
+    height: 90vh;
+    background: url('../img/pic4.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px 80px;
+    margin-top: 80px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #0b0f19 10%, rgba(11, 15, 25, 0.4) 60%, rgba(11, 15, 25, 0.8) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.hero-subtitle {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #38bdf8;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero-title {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 100px;
+    margin-left: 50px;
+}
+
+.hero-details {
+    max-width: 320px;
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.swipe-indicator {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.hero-pagination {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.hero-pagination .active-page {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+
+.gallery-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.recommendation-section {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-tag {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+.section-main-title {
+    font-size: 60px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+.main-upload-container {
+    background: rgba(30, 41, 59, 0.5);
+    border: 2px dashed rgba(56, 189, 248, 0.4);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.main-upload-container h3 {
+    font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.main-upload-container p {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+.upload-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+input[type="file"] {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.btn-primary, .btn-secondary {
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #0369a1;
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.destinations-grid > div,
+.destinations-grid > figure,
+.destinations-grid > article,
+.destination-card {
+    position: relative;
+    height: 380px !important;
+    min-height: 380px !important;
+    max-height: 380px !important;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1e293b;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.destinations-grid > div:hover,
+.destinations-grid > figure:hover,
+.destinations-grid > article:hover,
+.destination-card:hover {
+    transform: translateY(-8px);
+}
+
+.destinations-grid img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 20px;
+    background: linear-gradient(to top, rgba(11, 15, 25, 0.95) 10%, transparent 100%);
+    z-index: 5;
+}
+
+.place-rank {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #38bdf8;
+    font-weight: 700;
+}
+
+.place-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 4px;
+}
+
+.promo-banner-section {
+    position: relative;
+    height: 450px;
+    background: url('../img/pic1.jpg') no-repeat center center/cover;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    margin-bottom: 80px;
+    overflow: hidden;
+}
+
+.promo-banner-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 15, 25, 0.75);
+}
+
+.promo-content {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+}
+
+.promo-content h2 {
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.fun-holiday-btn {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    background: rgba(56, 189, 248, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.promo-desc {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.folder-section {
+    margin-top: 60px;
+}
+
+.folder-header {
+    margin-bottom: 30px;
+}
+
+.folder-header h2 {
+    font-size: 40px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.folder-header p {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.folder-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.folder-card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.folder-card:hover {
+    background: #334155;
+    transform: translateY(-4px);
+}
+
+.folder-graphic {
+    width: 80px;
+    height: 60px;
+    margin: 0 auto 15px auto;
+}
+
+.folder-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.folder-card h3 {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.image-action-container {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+}
+
+.menu-trigger-btn {
+    background: rgba(11, 15, 25, 0.7);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.action-dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 38px;
+    background: #1e293b;
+    border-radius: 6px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    width: 120px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.action-dropdown-menu.show {
+    display: block;
+}
+
+.action-dropdown-menu a,  
+.action-dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background: none;
+    border: none;
+    color: #f8fafc;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.action-dropdown-menu a:hover,  
+.action-dropdown-menu button:hover {
+    background: #334155;
+}
+
+.action-dropdown-menu button.delete-option {
+    color: #ef4444;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #1e293b;
+    width: 100%;
+    max-width: 800px;
+    max-height: 85vh;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header {
+    padding: 20px 25px;
+    background: #0b0f19;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-header h2 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.close-btn {
+    font-size: 24px;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ffffff;
+}
+
+.modal-body {
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.modal-upload-box {
+    background: rgba(11, 15, 25, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-upload-box p {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 10px;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+@media (max-width: 1024px) {
+    .folder-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .destinations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-title {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 600px) {
+    .folder-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+     
+    .left-banner {
+        height: 180px;
+        flex: none;
+    }
+     
+    .right-form-section {
+        padding: 35px 25px;
+    }
+}
+
+/* --- 2. TETAPAN ANIMASI MASUK (FADE DARI BAWAH) --- */
+.gallery-main-content {
+    animation: fadeInFromBottom 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    width: 100%;
+}
+
+@keyframes fadeInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Sembunyikan Nav Bar apabila modal dibuka */
+body.modal-open .gallery-nav {
+    display: none !important;
+}
